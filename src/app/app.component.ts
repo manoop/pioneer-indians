@@ -53,6 +53,7 @@ export class AppComponent implements OnInit, OnDestroy {
   language: SupportedLanguage = 'en';
   logoState: 'rest' | 'navigating' = 'rest';
   navigationOpen = false;
+  readonly currentYear = new Date().getFullYear();
 
   private languageSub?: Subscription;
   private routerSub?: Subscription;
