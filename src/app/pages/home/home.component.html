@@ -1,0 +1,55 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="eyebrow">Pioneer Indians</p>
+      <h1>{{ copy.heroTitle }}</h1>
+      <p class="intro">{{ copy.heroSubtitle }}</p>
+      <a class="btn" routerLink="/events">{{ copy.cta }}</a>
+    </div>
+    <div class="hero-visual" role="presentation">
+      <div class="hero-card">
+        <div class="pattern-burst"></div>
+        <div class="hero-photo"></div>
+        <div class="hero-caption">
+          {{
+            language === 'en'
+              ? 'Moments from our Holi street festival in the town square.'
+              : 'Momente von unserem Holi-Straßenfest auf dem Stadtplatz.'
+          }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="heritage-partner">
+  <div class="container">
+    <img
+      class="hp-logo"
+      src="assets/hp-logo.svg"
+      [alt]="language === 'en' ? 'Heritage partnership emblem' : 'Emblem für Kulturpartnerschaften'"
+    />
+    <p class="hp-writeup">{{ copy.hpLogoDescription }}</p>
+  </div>
+</section>
+
+<section class="highlights">
+  <div class="container">
+    <div class="card-grid">
+      <article class="content-card" *ngFor="let highlight of copy.highlights">
+        <h3>{{ highlight.title }}</h3>
+        <p>{{ highlight.description }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="spotlight">
+  <div class="container">
+    <div class="spotlight-copy">
+      <h2 class="section-title">{{ copy.spotlightTitle }}</h2>
+      <p class="section-subtitle">{{ copy.spotlightDescription }}</p>
+    </div>
+    <blockquote>{{ copy.spotlightQuote }}</blockquote>
+  </div>
+</section>

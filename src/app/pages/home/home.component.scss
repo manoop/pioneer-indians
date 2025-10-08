@@ -1,0 +1,120 @@
+.hero {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    margin: 0 0 0.75rem;
+    color: var(--brand-secondary);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
+
+  .intro {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-card {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    padding: 1rem;
+    box-shadow: 0 25px 60px rgba(18, 44, 47, 0.12);
+    overflow: hidden;
+  }
+
+  .pattern-burst {
+    position: absolute;
+    inset: -30% auto auto -30%;
+    width: 200px;
+    height: 200px;
+    background: url('/assets/pattern-abstract.svg') no-repeat center/contain;
+    opacity: 0.35;
+  }
+
+  .hero-photo {
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(242, 153, 74, 0.8), rgba(26, 60, 64, 0.8)),
+      url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=60') center/cover;
+    aspect-ratio: 4 / 3;
+    filter: saturate(110%);
+  }
+
+  .hero-caption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+}
+
+.heritage-partner {
+  padding: 2.5rem 0 3.5rem;
+  background: rgba(26, 60, 64, 0.04);
+
+  .container {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .hp-logo {
+    width: min(180px, 35vw);
+    filter: drop-shadow(0 12px 24px rgba(26, 60, 64, 0.12));
+  }
+
+  .hp-writeup {
+    margin: 0;
+    max-width: 58ch;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+}
+
+.highlights {
+  padding: 3rem 0 4rem;
+}
+
+.spotlight {
+  padding: 3rem 0 5rem;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+
+  blockquote {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--brand-primary);
+    padding-left: 2rem;
+    border-left: 4px solid var(--brand-secondary);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero .hero-photo {
+    aspect-ratio: 3 / 4;
+  }
+}

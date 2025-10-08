@@ -1,0 +1,27 @@
+<section class="community">
+  <div class="container">
+    <header class="community-header">
+      <h1 class="section-title">{{ copy.title }}</h1>
+      <p class="section-subtitle">{{ copy.intro }}</p>
+    </header>
+
+    <section class="support">
+      <h2>{{ copy.supportTitle }}</h2>
+      <div class="card-grid">
+        <article class="content-card" *ngFor="let item of copy.supportItems">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="contact-card">
+        <img src="assets/pattern-events.svg" alt="Abstract pattern" class="pattern" />
+        <h2>{{ copy.contactTitle }}</h2>
+        <p>{{ copy.contactBody }}</p>
+        <a class="btn" href="mailto:hello@pioneerindians.de">{{ copy.contactButton }}</a>
+      </div>
+    </section>
+  </div>
+</section>

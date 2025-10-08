@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img">
+  <title>Pioneer Indians heritage program emblem</title>
+  <defs>
+    <linearGradient id="hpGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f2994a" />
+      <stop offset="100%" stop-color="#1a3c40" />
+    </linearGradient>
+  </defs>
+  <circle cx="90" cy="90" r="84" fill="none" stroke="url(#hpGradient)" stroke-width="8" />
+  <path
+    d="M90 40c-20 0-36 16-36 36 0 14 8 26 20 32v32h32v-32c12-6 20-18 20-32 0-20-16-36-36-36zm0 16c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20z"
+    fill="url(#hpGradient)"
+    opacity="0.85"
+  />
+  <path
+    d="M58 134h64"
+    stroke="url(#hpGradient)"
+    stroke-width="10"
+    stroke-linecap="round"
+    opacity="0.75"
+  />
+</svg>

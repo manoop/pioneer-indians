@@ -1,0 +1,65 @@
+<header class="site-header" [class.nav-open]="navigationOpen">
+  <div class="container header-inner">
+    <a class="brand" routerLink="/" (click)="closeNavigation()">
+      <img
+        class="logo"
+        [src]="language === 'en' ? 'assets/logo-en.svg' : 'assets/logo-de.svg'"
+        [alt]="language === 'en' ? 'Pioneer Indians Cultural Collective logo' : 'Pioneer Indians Kulturverein Logo'"
+        [@logoTransition]="logoState"
+        (@logoTransition.done)="onLogoAnimationDone($event)"
+      />
+    </a>
+
+    <button class="menu-toggle" type="button" (click)="toggleNavigation()" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="primary-nav">
+      <ul>
+        <li>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavigation()">
+            {{ language === 'en' ? 'Home' : 'Startseite' }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/events" routerLinkActive="active" (click)="closeNavigation()">
+            {{ language === 'en' ? 'Events' : 'Veranstaltungen' }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/programs" routerLinkActive="active" (click)="closeNavigation()">
+            {{ language === 'en' ? 'Programs' : 'Programme' }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/community" routerLinkActive="active" (click)="closeNavigation()">
+            {{ language === 'en' ? 'Community' : 'Gemeinschaft' }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="language-switch">
+      <button type="button" [class.active]="language === 'en'" (click)="toggleLanguage('en')">EN</button>
+      <button type="button" [class.active]="language === 'de'" (click)="toggleLanguage('de')">DE</button>
+    </div>
+  </div>
+</header>
+
+<main class="page" [@routeSlide]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      {{
+        language === 'en'
+          ? '© ' + currentYear + ' Pioneer Indians Cultural Collective. All rights reserved.'
+          : '© ' + currentYear + ' Pioneer Indians Kulturverein. Alle Rechte vorbehalten.'
+      }}
+    </p>
+  </div>
+</footer>
