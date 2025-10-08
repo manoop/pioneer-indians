@@ -1,0 +1,33 @@
+.programs {
+  padding: 4rem 0 5rem;
+
+  .programs-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3rem;
+  }
+
+  .content-card {
+    position: relative;
+    overflow: hidden;
+
+    .duration {
+      margin-top: auto;
+      font-weight: 600;
+      color: var(--brand-primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  }
+
+  .content-card::after {
+    content: '';
+    position: absolute;
+    inset: auto auto -40px -40px;
+    width: 160px;
+    height: 160px;
+    background: url('/assets/pattern-community.svg') no-repeat center/contain;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,21 @@
+<section class="events">
+  <div class="container">
+    <header class="events-header">
+      <h1 class="section-title">{{ copy.title }}</h1>
+      <p class="section-subtitle">{{ copy.intro }}</p>
+    </header>
+
+    <div class="timeline">
+      <article class="season" *ngFor="let season of copy.seasons">
+        <div class="season-marker"></div>
+        <div class="season-content">
+          <h2>{{ season.season }}</h2>
+          <p>{{ season.description }}</p>
+          <ul>
+            <li *ngFor="let item of season.highlights">{{ item }}</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
