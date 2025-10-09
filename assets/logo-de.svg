@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120">
+  <defs>
+    <linearGradient id="gradient-de" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#48dbfb" />
+      <stop offset="50%" stop-color="#ff9ff3" />
+      <stop offset="100%" stop-color="#feca57" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="120" rx="20" fill="url(#gradient-de)" />
+  <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-size="24" font-family="'Poppins', sans-serif" fill="#ffffff" font-weight="700">Pionier Indians</text>
+  <text x="50%" y="68%" dominant-baseline="middle" text-anchor="middle" font-size="16" font-family="'Poppins', sans-serif" fill="#ffffff">Gemeinschaft &amp; Kultur</text>
+</svg>
