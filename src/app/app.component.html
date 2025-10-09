@@ -3,11 +3,23 @@
     <a class="brand" routerLink="/" (click)="closeNavigation()">
       <img
         class="logo"
-        [src]="language === 'en' ? 'assets/logo-en.svg' : 'assets/logo-de.svg'"
-        [alt]="language === 'en' ? 'Pioneer Indians Cultural Collective logo' : 'Pioneer Indians Kulturverein Logo'"
+        src="assets/hp-logo.svg"
+        [alt]="language === 'en' ? 'Pioneer Indians Heritage Program logo' : 'Pioneer Indians Heritage-Programm Logo'"
         [@logoTransition]="logoState"
         (@logoTransition.done)="onLogoAnimationDone($event)"
       />
+      <div class="brand-text">
+        <span class="brand-eyebrow">
+          {{ language === 'en' ? 'Heritage Program' : 'Heritage-Programm' }}
+        </span>
+        <span class="brand-title">
+          {{
+            language === 'en'
+              ? 'Pioneer Indians Cultural Collective'
+              : 'Pioneer Indians Kulturverein'
+          }}
+        </span>
+      </div>
     </a>
 
     <button class="menu-toggle" type="button" (click)="toggleNavigation()" aria-label="Toggle navigation">

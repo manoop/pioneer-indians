@@ -158,3 +158,20 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .site-header {
+    .header-inner {
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .brand {
+      align-items: flex-start;
+    }
+
+    .brand-title {
+      font-size: 0.95rem;
+    }
+  }
+}
