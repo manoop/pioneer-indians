@@ -30,11 +30,11 @@ import { LanguageService, SupportedLanguage } from './core/language.service';
       transition(
         'rest => navigating',
         animate(
-          '560ms cubic-bezier(0.33, 1, 0.68, 1)',
+          '640ms cubic-bezier(0.25, 0.8, 0.3, 1)',
           keyframes([
             style({ offset: 0, transform: 'translate3d(0, 0, 0) scale(1)', opacity: 1 }),
-            style({ offset: 0.35, transform: 'translate3d(0, -8px, 0) scale(1.03)', opacity: 0.94 }),
-            style({ offset: 0.7, transform: 'translate3d(0, 3px, 0) scale(0.99)', opacity: 0.98 }),
+            style({ offset: 0.35, transform: 'translate3d(0, -6px, 0) scale(1.04) rotate(-1deg)', opacity: 0.96 }),
+            style({ offset: 0.7, transform: 'translate3d(0, 4px, 0) scale(0.98) rotate(2deg)', opacity: 0.98 }),
             style({ offset: 1, transform: 'translate3d(0, 0, 0) scale(1)', opacity: 1 })
           ])
         )
@@ -43,8 +43,8 @@ import { LanguageService, SupportedLanguage } from './core/language.service';
     ]),
     trigger('routeSlide', [
       transition('* <=> *', [
-        style({ opacity: 0, transform: 'translateY(18px)' }),
-        animate('420ms cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateY(0)' }))
+        style({ opacity: 0, transform: 'translateY(16px)' }),
+        animate('360ms 50ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
       ])
     ])
   ]
