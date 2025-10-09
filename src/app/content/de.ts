@@ -2,9 +2,9 @@ import { AppContent } from './app-content.model';
 
 export const deContent: AppContent = {
   header: {
-    logoAlt: 'Pioneer Indians Heritage-Programm Logo',
-    eyebrow: 'Heritage-Programm',
-    title: 'Pioneer Indians Kulturverein',
+    logoAlt: 'Pioneer Indians e.V. Logo',
+    eyebrow: '',
+    title: 'Pioneer Indians e.V.',
     navigation: {
       home: 'Startseite',
       events: 'Veranstaltungen',
@@ -13,5 +13,5 @@ export const deContent: AppContent = {
     }
   },
   footer: (year: number): string =>
-    `© ${year} Pioneer Indians Kulturverein. Alle Rechte vorbehalten.`
+    `© ${year} Pioneer Indians e.V. Alle Rechte vorbehalten.`
 };
