@@ -1,24 +1,29 @@
+<div
+  *ngIf="showIntro"
+  @introFade
+  class="intro-overlay"
+  [class.logo-visible]="showLogo"
+  aria-hidden="true"
+>
+  <div class="firework firework--one"></div>
+  <div class="firework firework--two"></div>
+  <div class="firework firework--three"></div>
+  <img class="intro-logo" src="assets/hplogo.svg" alt="" />
+</div>
+
 <header class="site-header" [class.nav-open]="navigationOpen">
   <div class="container header-inner">
     <a class="brand" routerLink="/" (click)="closeNavigation()">
       <img
         class="logo"
-        src="assets/hp-logo.svg"
-        [alt]="language === 'en' ? 'Pioneer Indians Heritage Program logo' : 'Pioneer Indians Heritage-Programm Logo'"
+        src="assets/hplogo.svg"
+        [alt]="content.header.logoAlt"
         [@logoTransition]="logoState"
         (@logoTransition.done)="onLogoAnimationDone($event)"
       />
       <div class="brand-text">
-        <span class="brand-eyebrow">
-          {{ language === 'en' ? 'Heritage Program' : 'Heritage-Programm' }}
-        </span>
-        <span class="brand-title">
-          {{
-            language === 'en'
-              ? 'Pioneer Indians Cultural Collective'
-              : 'Pioneer Indians Kulturverein'
-          }}
-        </span>
+        <span class="brand-eyebrow">{{ content.header.eyebrow }}</span>
+        <span class="brand-title">{{ content.header.title }}</span>
       </div>
     </a>
 
@@ -32,22 +37,22 @@
       <ul>
         <li>
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavigation()">
-            {{ language === 'en' ? 'Home' : 'Startseite' }}
+            {{ content.header.navigation.home }}
           </a>
         </li>
         <li>
           <a routerLink="/events" routerLinkActive="active" (click)="closeNavigation()">
-            {{ language === 'en' ? 'Events' : 'Veranstaltungen' }}
+            {{ content.header.navigation.events }}
           </a>
         </li>
         <li>
           <a routerLink="/programs" routerLinkActive="active" (click)="closeNavigation()">
-            {{ language === 'en' ? 'Programs' : 'Programme' }}
+            {{ content.header.navigation.programs }}
           </a>
         </li>
         <li>
           <a routerLink="/community" routerLinkActive="active" (click)="closeNavigation()">
-            {{ language === 'en' ? 'Community' : 'Gemeinschaft' }}
+            {{ content.header.navigation.community }}
           </a>
         </li>
       </ul>
@@ -67,11 +72,7 @@
 <footer class="site-footer">
   <div class="container">
     <p>
-      {{
-        language === 'en'
-          ? '© ' + currentYear + ' Pioneer Indians Cultural Collective. All rights reserved.'
-          : '© ' + currentYear + ' Pioneer Indians Kulturverein. Alle Rechte vorbehalten.'
-      }}
+      {{ content.footer(currentYear) }}
     </p>
   </div>
 </footer>

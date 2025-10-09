@@ -4,12 +4,24 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 import { Subscription } from 'rxjs';
 
 import { LanguageService, SupportedLanguage } from './core/language.service';
+import { AppContent } from './content/app-content.model';
+import { deContent } from './content/de';
+import { enContent } from './content/en';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
+    trigger('introFade', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('480ms ease-out', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('420ms ease-in', style({ opacity: 0 }))
+      ])
+    ]),
     trigger('logoTransition', [
       state(
         'rest',
@@ -51,20 +63,38 @@ import { LanguageService, SupportedLanguage } from './core/language.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   language: SupportedLanguage = 'en';
+  content: AppContent = enContent;
   logoState: 'rest' | 'navigating' = 'rest';
   navigationOpen = false;
+  showIntro = true;
+  showLogo = false;
   readonly currentYear = new Date().getFullYear();
 
   private languageSub?: Subscription;
   private routerSub?: Subscription;
   private restartTimer?: ReturnType<typeof setTimeout>;
+  private introLogoTimer?: ReturnType<typeof setTimeout>;
+  private introCompleteTimer?: ReturnType<typeof setTimeout>;
 
   constructor(private readonly languageService: LanguageService, private readonly router: Router) {}
 
   ngOnInit(): void {
     this.languageSub = this.languageService.language$.subscribe(lang => {
-      this.language = lang;
+      this.updateLanguage(lang);
     });
+
+    this.updateLanguage(this.languageService.current);
+
+    if (this.showIntro) {
+      this.introLogoTimer = setTimeout(() => {
+        this.showLogo = true;
+      }, 2000);
+
+      this.introCompleteTimer = setTimeout(() => {
+        this.showIntro = false;
+        this.showLogo = false;
+      }, 6000);
+    }
 
     this.routerSub = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -83,6 +113,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.routerSub?.unsubscribe();
     if (this.restartTimer) {
       clearTimeout(this.restartTimer);
+    }
+    if (this.introLogoTimer) {
+      clearTimeout(this.introLogoTimer);
+    }
+    if (this.introCompleteTimer) {
+      clearTimeout(this.introCompleteTimer);
     }
   }
 
@@ -134,5 +170,10 @@ export class AppComponent implements OnInit, OnDestroy {
     if (event.toState === 'navigating') {
       this.logoState = 'rest';
     }
+  }
+
+  private updateLanguage(language: SupportedLanguage): void {
+    this.language = language;
+    this.content = language === 'en' ? enContent : deContent;
   }
 }
