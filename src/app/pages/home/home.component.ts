@@ -7,7 +7,6 @@ type HomeCopy = {
   heroTitle: string;
   heroSubtitle: string;
   cta: string;
-  hpLogoDescription: string;
   highlights: { title: string; description: string }[];
   spotlightTitle: string;
   spotlightDescription: string;
@@ -20,8 +19,6 @@ const HOME_CONTENT: Record<SupportedLanguage, HomeCopy> = {
     heroSubtitle:
       'Pioneer Indians Cultural Collective connects artists, families, and curious neighbors through vibrant programming, collaborative workshops, and joyful festivals inspired by South Asian traditions.',
     cta: 'Explore Upcoming Gatherings',
-    hpLogoDescription:
-      'Pioneer Indians e.V. elevates heritage partnerships across Bavaria, inviting cultural groups to collaborate on events that celebrate shared histories and create new connections.',
     highlights: [
       {
         title: 'Intercultural Dialogues',
@@ -46,8 +43,6 @@ const HOME_CONTENT: Record<SupportedLanguage, HomeCopy> = {
     heroSubtitle:
       'Der Pioneer Indians Kulturverein verbindet Künstler:innen, Familien und neugierige Nachbar:innen durch lebendige Programme, Workshops und Feste, die von südasiatischen Traditionen inspiriert sind.',
     cta: 'Bevorstehende Treffen entdecken',
-    hpLogoDescription:
-      'Pioneer Indians e.V. stärkt kulturelle Partnerschaften in Bayern, indem der Verein Gruppen zusammenbringt, um gemeinsame Geschichte zu würdigen und neue Verbindungen zu schaffen.',
     highlights: [
       {
         title: 'Interkulturelle Dialoge',

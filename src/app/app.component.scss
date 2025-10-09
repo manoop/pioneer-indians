@@ -17,11 +17,34 @@
   .brand {
     display: inline-flex;
     align-items: center;
+    gap: 0.9rem;
+    text-decoration: none;
+    color: inherit;
   }
 
   .logo {
-    width: clamp(160px, 20vw, 210px);
+    width: clamp(84px, 12vw, 110px);
     will-change: transform;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .brand-eyebrow {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.42em;
+    color: var(--brand-secondary);
+  }
+
+  .brand-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    color: var(--brand-primary);
   }
 
   .primary-nav ul {
@@ -155,6 +178,23 @@
         transform: translateY(0);
         pointer-events: auto;
       }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    .header-inner {
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .brand {
+      align-items: flex-start;
+    }
+
+    .brand-title {
+      font-size: 0.95rem;
     }
   }
 }
