@@ -183,12 +183,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.introLogoTimer = setTimeout(() => {
       this.showLogo = true;
       this.introLogoTimer = undefined;
-    }, 3000);
+    }, 6000);
 
     this.introCompleteTimer = setTimeout(() => {
       this.showIntro = false;
       this.showLogo = false;
       this.introCompleteTimer = undefined;
-    }, 5000);
+    }, 10000);
   }
 }
