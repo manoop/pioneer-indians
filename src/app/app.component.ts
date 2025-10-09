@@ -4,6 +4,9 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 import { Subscription } from 'rxjs';
 
 import { LanguageService, SupportedLanguage } from './core/language.service';
+import { AppContent } from './content/app-content.model';
+import { deContent } from './content/de';
+import { enContent } from './content/en';
 
 @Component({
   selector: 'app-root',
@@ -51,6 +54,7 @@ import { LanguageService, SupportedLanguage } from './core/language.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   language: SupportedLanguage = 'en';
+  content: AppContent = enContent;
   logoState: 'rest' | 'navigating' = 'rest';
   navigationOpen = false;
   readonly currentYear = new Date().getFullYear();
@@ -63,8 +67,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.languageSub = this.languageService.language$.subscribe(lang => {
-      this.language = lang;
+      this.updateLanguage(lang);
     });
+
+    this.updateLanguage(this.languageService.current);
 
     this.routerSub = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -134,5 +140,10 @@ export class AppComponent implements OnInit, OnDestroy {
     if (event.toState === 'navigating') {
       this.logoState = 'rest';
     }
+  }
+
+  private updateLanguage(language: SupportedLanguage): void {
+    this.language = language;
+    this.content = language === 'en' ? enContent : deContent;
   }
 }
