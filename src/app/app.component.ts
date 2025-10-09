@@ -85,17 +85,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.updateLanguage(this.languageService.current);
 
-    if (this.showIntro) {
-      this.introLogoTimer = setTimeout(() => {
-        this.showLogo = true;
-      }, 2000);
-
-      this.introCompleteTimer = setTimeout(() => {
-        this.showIntro = false;
-        this.showLogo = false;
-      }, 6000);
-    }
-
     this.routerSub = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.activateLogo();

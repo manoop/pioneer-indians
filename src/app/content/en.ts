@@ -2,9 +2,9 @@ import { AppContent } from './app-content.model';
 
 export const enContent: AppContent = {
   header: {
-    logoAlt: 'Pioneer Indians Heritage Program logo',
-    eyebrow: 'Heritage Program',
-    title: 'Pioneer Indians Cultural Collective',
+    logoAlt: 'Pioneer Indians e.V logo',
+    eyebrow: '',
+    title: 'Pioneer Indians e.V.',
     navigation: {
       home: 'Home',
       events: 'Events',
@@ -13,5 +13,5 @@ export const enContent: AppContent = {
     }
   },
   footer: (year: number): string =>
-    `© ${year} Pioneer Indians Cultural Collective. All rights reserved.`
+    `© ${year} Pioneer Indians e.V. All rights reserved.`
 };
