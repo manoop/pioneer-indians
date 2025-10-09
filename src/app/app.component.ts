@@ -85,6 +85,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.updateLanguage(this.languageService.current);
 
+    this.beginIntroSequence();
+
     this.routerSub = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.activateLogo();
@@ -164,5 +166,29 @@ export class AppComponent implements OnInit, OnDestroy {
   private updateLanguage(language: SupportedLanguage): void {
     this.language = language;
     this.content = language === 'en' ? enContent : deContent;
+  }
+
+  private beginIntroSequence(): void {
+    this.showIntro = true;
+    this.showLogo = false;
+
+    if (this.introLogoTimer) {
+      clearTimeout(this.introLogoTimer);
+    }
+
+    if (this.introCompleteTimer) {
+      clearTimeout(this.introCompleteTimer);
+    }
+
+    this.introLogoTimer = setTimeout(() => {
+      this.showLogo = true;
+      this.introLogoTimer = undefined;
+    }, 3000);
+
+    this.introCompleteTimer = setTimeout(() => {
+      this.showIntro = false;
+      this.showLogo = false;
+      this.introCompleteTimer = undefined;
+    }, 5000);
   }
 }
