@@ -1,0 +1,64 @@
+.community {
+  padding: 4rem 0 5rem;
+
+  .community-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .support {
+    margin-bottom: 4rem;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.75rem;
+    }
+  }
+
+  .contact {
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-card {
+    position: relative;
+    width: min(680px, 100%);
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(26, 60, 64, 0.95), rgba(18, 44, 47, 0.92));
+    border-radius: 28px;
+    color: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 30px 70px rgba(18, 44, 47, 0.25);
+    overflow: hidden;
+
+    .pattern {
+      position: absolute;
+      inset: auto -20px -60px auto;
+      width: clamp(160px, 18vw, 220px);
+      opacity: 0.35;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    p {
+      margin-bottom: 2rem;
+      max-width: 48ch;
+      line-height: 1.7;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #f2994a, #f2c94c);
+      color: #122c2f;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .community .contact-card {
+    padding: 2rem;
+  }
+}

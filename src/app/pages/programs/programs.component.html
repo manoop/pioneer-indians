@@ -1,0 +1,16 @@
+<section class="programs">
+  <div class="container">
+    <header class="programs-header">
+      <h1 class="section-title">{{ copy.title }}</h1>
+      <p class="section-subtitle">{{ copy.intro }}</p>
+    </header>
+
+    <div class="card-grid">
+      <article class="content-card" *ngFor="let stream of copy.streams">
+        <h3>{{ stream.name }}</h3>
+        <p>{{ stream.description }}</p>
+        <span class="duration">{{ stream.duration }}</span>
+      </article>
+    </div>
+  </div>
+</section>

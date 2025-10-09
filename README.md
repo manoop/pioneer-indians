@@ -1,53 +1,70 @@
-# Pioneer Indians Landing Page
+# Pioneer Indians Cultural Collective Web App
 
-This project is a static bilingual landing page concept for Pioneer Indians.
+This repository now houses a full Angular application for the Pioneer Indians Cultural Collective. The app reimagines the earlier static prototype as a routed experience with English and German language support, polished layouts, and animated logo transitions on every page change.
 
 ## Prerequisites
 
-No build tools are required. Any modern web browser (Chrome, Firefox, Safari, Edge) works.
+* [Node.js](https://nodejs.org/) 18 or later
+* [npm](https://www.npmjs.com/) (bundled with Node.js)
 
-## Run locally
+> The Angular CLI dependency is defined in `package.json`, so you do **not** need a global installation.
 
-You can view the site in two ways:
+## Getting started
 
-### 1. Open the HTML file directly
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm start
+   ```
+3. Navigate to `http://localhost:4200/` in your browser. The app supports hot reloads, so changes are reflected automatically.
 
-1. Download or clone this repository.
-2. Double-click `index.html` (or open it in your browser via **File → Open**).
+### Production build
 
-> Note: Some browsers block `fetch` or relative asset paths when opening files directly. If any assets fail to load, use option 2 instead.
-
-### 2. Serve with a local HTTP server (recommended)
-
-From the project root, run one of the following commands to start a local server, then visit the printed URL in your browser (typically `http://localhost:8000`).
-
+Create an optimized production bundle with:
 ```bash
-# Python 3
-python3 -m http.server 8000
+npm run build
+```
+The compiled output is placed in `dist/pioneer-indians/`.
 
-# Node.js (if you have npm installed)
-npx serve .
+### Linting & tests
 
-# Ruby
-ruby -run -ehttpd . -p8000
+Unit tests use Karma and Jasmine. Run them with:
+```bash
+npm test
 ```
 
-Stop the server with `Ctrl+C`.
-
-## Project structure
+## Application structure
 
 ```
 .
-├── assets/    # SVG logos and decorative artwork
-├── css/       # Global stylesheets
-├── js/        # Language toggle and navigation logic
-└── index.html # Main entry point
+├── angular.json            # Angular workspace configuration
+├── package.json            # Scripts and dependencies
+├── src/
+│   ├── main.ts             # App bootstrap entrypoint
+│   ├── index.html          # HTML shell rendered by Angular
+│   ├── styles.scss         # Global styling tokens and helpers
+│   ├── assets/             # Logos and decorative SVG patterns
+│   └── app/
+│       ├── core/           # Shared services (language service)
+│       ├── pages/          # Routed feature components
+│       ├── app.component.* # Shell layout with logo animation & nav
+│       └── app.module.ts   # Root Angular module
+└── tsconfig*.json          # TypeScript compiler configs
 ```
+
+## Key features
+
+* **Smooth logo animation** triggered automatically during route transitions between the Home, Events, Programs, and Community pages.
+* **Bilingual experience** with an accessible language toggle that swaps between the English and German logo variants and localized copy across every view.
+* **Responsive layout** leveraging reusable card grids, decorative patterns, and modern typographic scales inspired by the original design brief.
 
 ## Troubleshooting
 
-* If language toggling or navigation animations do not work, ensure you are serving the files over HTTP using option 2 above.
-* Clear your browser cache if styles or scripts seem out of date after pulling new changes.
+* If you encounter installation issues, delete `node_modules` and rerun `npm install` to ensure dependencies are resolved cleanly.
+* Make sure port `4200` is available before running `npm start`, or configure an alternate port via `ng serve --port <number>`.
 
 ## License
 
