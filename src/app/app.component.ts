@@ -13,6 +13,15 @@ import { enContent } from './content/en';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
+    trigger('introFade', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('480ms ease-out', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('420ms ease-in', style({ opacity: 0 }))
+      ])
+    ]),
     trigger('logoTransition', [
       state(
         'rest',
@@ -57,11 +66,15 @@ export class AppComponent implements OnInit, OnDestroy {
   content: AppContent = enContent;
   logoState: 'rest' | 'navigating' = 'rest';
   navigationOpen = false;
+  showIntro = true;
+  showLogo = false;
   readonly currentYear = new Date().getFullYear();
 
   private languageSub?: Subscription;
   private routerSub?: Subscription;
   private restartTimer?: ReturnType<typeof setTimeout>;
+  private introLogoTimer?: ReturnType<typeof setTimeout>;
+  private introCompleteTimer?: ReturnType<typeof setTimeout>;
 
   constructor(private readonly languageService: LanguageService, private readonly router: Router) {}
 
@@ -89,6 +102,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.routerSub?.unsubscribe();
     if (this.restartTimer) {
       clearTimeout(this.restartTimer);
+    }
+    if (this.introLogoTimer) {
+      clearTimeout(this.introLogoTimer);
+    }
+    if (this.introCompleteTimer) {
+      clearTimeout(this.introCompleteTimer);
     }
   }
 

@@ -1,3 +1,16 @@
+<div
+  *ngIf="showIntro"
+  @introFade
+  class="intro-overlay"
+  [class.logo-visible]="showLogo"
+  aria-hidden="true"
+>
+  <div class="firework firework--one"></div>
+  <div class="firework firework--two"></div>
+  <div class="firework firework--three"></div>
+  <img class="intro-logo" src="assets/hplogo.svg" alt="" />
+</div>
+
 <header class="site-header" [class.nav-open]="navigationOpen">
   <div class="container header-inner">
     <a class="brand" routerLink="/" (click)="closeNavigation()">
